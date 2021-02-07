@@ -22,9 +22,9 @@
 
 | Column            | Type      | Options                        |
 | ----------------- | --------- | ------------------------------ |
-| name              | string    | null: false                    |
-| description       | text      | null: false, limit: 40         |
-| category_id       | integer   | null: false, limit: 1000       |
+| name              | string    | null: false, limit: 40         |
+| description       | text      | null: false, limit: 1000       |
+| category_id       | integer   | null: false                    |
 | condition_id      | integer   | null: false                    |
 | charge_id         | integer   | null: false                    |
 | ship_from_area_id | integer   | null: false                    |
