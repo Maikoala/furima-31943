@@ -52,15 +52,15 @@
 
 ## addresses テーブル
 
-| Column         | Type      | Options                        |
-| -------------- | --------- | ------------------------------ |
-| zip_code       | string    | null: false                    |
-| state          | string    | null: false                    |
-| city           | string    | null: false                    |
-| address_line_1 | string    | null: false                    |
-| address_line_2 | string    |                                |
-| phone_number   | string    | null: false                    |
-| buyer          | reference | null: false, foreign_key: true |
+| Column            | Type      | Options                        |
+| ----------------- | --------- | ------------------------------ |
+| zip_code          | string    | null: false                    |
+| ship_from_area_id | integer   | null: false                    |
+| city              | string    | null: false                    |
+| address_line_1    | string    | null: false                    |
+| address_line_2    | string    |                                |
+| phone_number      | string    | null: false                    |
+| buyer             | reference | null: false, foreign_key: true |
 
 ### Association
 
