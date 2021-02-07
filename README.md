@@ -22,7 +22,7 @@
 
 | Column         | Type      | Options                        |
 | -------------- | --------- | ------------------------------ |
-| name           | text      | null: false                    |
+| name           | string    | null: false                    |
 | description    | text      | null: false, limit: 40         |
 | category       | string    | null: false, limit: 1000       |
 | condition      | string    | null: false                    |
