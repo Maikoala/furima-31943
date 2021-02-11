@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   validates_presence_of :nickname, :first_name, :last_name, :first_name_kana, :last_name_kana, :birthday
   validates :first_name, :last_name,
-            format: { with: /\A[ぁ-んァ-ン一-龥]/,
+            format: { with: /\A[ぁ-んァ-ン一-龥々]/,
                       message: 'Full-width characters' }
   validates :first_name_kana, :last_name_kana,
             format: { with: /\A([ァ-ン]|ー)+\z/,
