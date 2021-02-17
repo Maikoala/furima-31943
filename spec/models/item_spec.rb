@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
 
   describe '#create' do
     context '商品投稿出来る場合' do
-      it '商品画像と商品説明が存在し、カテゴリー、商品状態、配送料負担、発送元地域、発送までの日数が選択されていて、販売価格が入力されていれば保存出来ること'do
+      it '商品画像と商品説明が存在し、カテゴリー、商品状態、配送料負担、発送元地域、発送までの日数が選択されていて、販売価格が入力されていれば保存出来ること' do
         expect(@item).to be_valid
       end
     end
@@ -18,7 +18,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
-    
+
       it '商品名がないと保存できないこと' do
         @item.name = nil
         @item.valid?
@@ -26,9 +26,9 @@ RSpec.describe Item, type: :model do
       end
 
       it '商品名が41文字以上だと保存できないこと' do
-        @item.name = "abcd"*11
+        @item.name = 'abcd' * 11
         @item.valid?
-        expect(@item.errors.full_messages).to include("Name is too long (maximum is 40 characters)")
+        expect(@item.errors.full_messages).to include('Name is too long (maximum is 40 characters)')
       end
 
       it '商品の説明がないと保存できないこと' do
@@ -38,9 +38,9 @@ RSpec.describe Item, type: :model do
       end
 
       it '商品の説明が1001文字以上だと保存できないこと' do
-        @item.description = "abcdefghij"*101
+        @item.description = 'abcdefghij' * 101
         @item.valid?
-        expect(@item.errors.full_messages).to include("Description is too long (maximum is 1000 characters)")
+        expect(@item.errors.full_messages).to include('Description is too long (maximum is 1000 characters)')
       end
 
       it 'カテゴリー情報がないと保存できないこと' do
@@ -52,7 +52,7 @@ RSpec.describe Item, type: :model do
       it 'カテゴリー情報が「---」の時は保存できないこと' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category Select")
+        expect(@item.errors.full_messages).to include('Category Select')
       end
 
       it '商品の状態についての情報がないと保存できないこと' do
@@ -64,7 +64,7 @@ RSpec.describe Item, type: :model do
       it '商品の状態についての情報が「---」の時は保存できないこと' do
         @item.condition_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition Select")
+        expect(@item.errors.full_messages).to include('Condition Select')
       end
 
       it '配送料の負担についての情報がないと保存できないこと' do
@@ -76,7 +76,7 @@ RSpec.describe Item, type: :model do
       it '配送料の負担についての情報が「---」の時は保存できないこと' do
         @item.charge_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Charge Select")
+        expect(@item.errors.full_messages).to include('Charge Select')
       end
 
       it '発送元の地域についての情報がないと保存できないこと' do
@@ -84,11 +84,11 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Ship from area can't be blank")
       end
-      
+
       it '発送元の地域についての情報が「---」の時は保存できないこと' do
         @item.ship_from_area_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Ship from area Select")
+        expect(@item.errors.full_messages).to include('Ship from area Select')
       end
 
       it '発送までの日数についての情報がないと保存できないこと' do
@@ -100,7 +100,7 @@ RSpec.describe Item, type: :model do
       it '発送までの日数についての情報が「---」の時は保存できないこと' do
         @item.delivery_time_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery time Select")
+        expect(@item.errors.full_messages).to include('Delivery time Select')
       end
 
       it '価格についての情報がないと保存できないこと' do
@@ -110,27 +110,27 @@ RSpec.describe Item, type: :model do
       end
 
       it '価格が300円を下回る時は保存できないこと' do
-        @item.price = "250"
+        @item.price = '250'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price Out of setting range")
+        expect(@item.errors.full_messages).to include('Price Out of setting range')
       end
 
       it '価格が9,999,999円を上回る時は保存できないこと' do
-        @item.price = "10000000"
+        @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price Out of setting range")
+        expect(@item.errors.full_messages).to include('Price Out of setting range')
       end
 
       it '価格が全角の時保存できないこと' do
-        @item.price = "６７８９"
+        @item.price = '６７８９'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price Half-width number")
+        expect(@item.errors.full_messages).to include('Price Half-width number')
       end
 
       it '価格が数字以外の時は保存できないこと' do
-        @item.price = "abcd"
+        @item.price = 'abcd'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price Half-width number")
+        expect(@item.errors.full_messages).to include('Price Half-width number')
       end
     end
   end
