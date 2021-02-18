@@ -1,7 +1,11 @@
 class Item < ApplicationRecord
-  validates :image, presence: true
-  validates :name, presence: true, length: { maximum: 40 }
-  validates :description, presence: true, length: { maximum: 1000 }
+  with_options presence: true do
+    validates :image
+    validates :name
+    validates :description
+  end
+  validates :name, length: { maximum: 40 }
+  validates :description, length: { maximum: 1000 }
   with_options presence: true, numericality: { other_than: 1, message: 'Select' } do
     validates :category_id
     validates :condition_id
