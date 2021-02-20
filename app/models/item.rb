@@ -22,4 +22,12 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one_attached :image
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :category
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :charge
+  belongs_to_active_hash :ship_from_area
+  belongs_to_active_hash :delivery_time
+
 end
