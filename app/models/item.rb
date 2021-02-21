@@ -29,5 +29,4 @@ class Item < ApplicationRecord
   belongs_to_active_hash :charge
   belongs_to_active_hash :ship_from_area
   belongs_to_active_hash :delivery_time
-
 end
