@@ -18,6 +18,12 @@ RSpec.describe ItemBuyer, type: :model do
     end
 
     context '購入情報の保存がうまくいかないとき' do
+      it 'tokenが空だと保存できないこと' do
+        @item_buyer.token = nil
+        @item_buyer.valid?
+        expect( @item_buyer.errors.full_messages).to include("Token can't be blank")
+      end
+
       it 'zip_codeが空だと保存できないこと' do
         @item_buyer.zip_code = nil
         @item_buyer.valid?
