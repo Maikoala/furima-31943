@@ -39,6 +39,6 @@ class BuyersController < ApplicationController
   end
 
   def move_to_index_buy
-    redirect_to root_path if user_signed_in? && @item.buyer.present?
+    redirect_to root_path if @item.buyer.present?
   end
 end
