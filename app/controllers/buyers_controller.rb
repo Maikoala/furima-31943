@@ -9,7 +9,6 @@ class BuyersController < ApplicationController
 
   def create
     @item_buyer = ItemBuyer.new(buyer_params)
-    @item = Item.find(params[:item_id])
     if @item_buyer.valid?
       pay_item
       @item_buyer.save
