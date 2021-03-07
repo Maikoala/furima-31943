@@ -55,6 +55,6 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index_edit
-    redirect_to root_path if @item.buyer.valid?
+    redirect_to root_path if @item.buyer.present?
   end
 end
