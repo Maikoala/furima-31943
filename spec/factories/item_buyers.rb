@@ -5,7 +5,7 @@ FactoryBot.define do
     ship_from_area_id { Faker::Number.between(from: 2, to: 48) }
     city              { Gimei.city.kanji }
     address_line_1    { Gimei.town.kanji }
-    address_line_2    { 'マンション'}
-    phone_number      { Faker::Number.leading_zero_number(digits: 11)}
+    address_line_2    { 'マンション' }
+    phone_number      { Faker::Number.leading_zero_number(digits: 11) }
   end
 end
