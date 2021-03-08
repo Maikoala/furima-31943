@@ -7,7 +7,5 @@ FactoryBot.define do
     address_line_1    { Gimei.town.kanji }
     address_line_2    { 'マンション'}
     phone_number      { Faker::Number.leading_zero_number(digits: 11)}
-    user_id           { Faker::Number.between(from: 1, to: 100)}
-    item_id           { Faker::Number.between(from: 1, to: 300)}
   end
 end

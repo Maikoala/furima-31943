@@ -2,7 +2,12 @@ require 'rails_helper'
 
 RSpec.describe ItemBuyer, type: :model do
   before do
+    @item = FactoryBot.create(:item)
+    @user = FactoryBot.create(:user)
     @item_buyer = FactoryBot.build(:item_buyer)
+    @item_buyer.item_id = @item.id
+    @item_buyer.user_id = @user.id
+    sleep(0.1)
   end
 
   describe '購入情報の保存' do
