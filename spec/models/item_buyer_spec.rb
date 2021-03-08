@@ -107,10 +107,22 @@ RSpec.describe ItemBuyer, type: :model do
         expect( @item_buyer.errors.full_messages).to include('Phone number Input only number')
       end
 
-        it 'phone_numberが9桁以下だと保存できないこと' do
+      it 'phone_numberが9桁以下だと保存できないこと' do
           @item_buyer.phone_number = '033334444'
           @item_buyer.valid?
           expect( @item_buyer.errors.full_messages).to include('Phone number Input only number')
+      end
+
+      it 'user_idが空だと保存できないこと' do
+        @item_buyer.user_id = nil
+        @item_buyer.valid?
+        expect( @item_buyer.errors.full_messages).to include("User can't be blank")
+      end
+
+      it 'item_idが空だと保存できないこと' do
+        @item_buyer.item_id = nil
+        @item_buyer.valid?
+        expect( @item_buyer.errors.full_messages).to include("Item can't be blank")
       end
     end
   end
